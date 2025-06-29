@@ -53,9 +53,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: cjsqudwns/app-infra
+          path: app-infra
           ref: main
           token: ${{ secrets.TOKEN }}
-          path: app-infra
 
       - name: Update image tag in app-infra
         run: |
@@ -63,6 +63,7 @@ jobs:
 
       - name: Commit and Push
         run: |
+          cd app-infra
           git config --local user.email "cjsqudwns@gmail.com"
           git config --local user.name "cjsqudwns"
           git add .
